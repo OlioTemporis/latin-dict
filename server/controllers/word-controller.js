@@ -16,14 +16,15 @@ async function getWords(req, res) {
 }
 
 async function getWord(req, res) {
-  const { id } = req.params;
+  const { lemma } = req.params;
+  console.log(req.params);
   const query = `
         SELECT words.id, words.lemma, words.head, pos.name AS pos_name, words.def, words.img 
         FROM words
         INNER JOIN pos ON words.pos_id = pos.id
-        WHERE words.id = $1;
+        WHERE words.lemma = $1;
       `;
-  const values = [id];
+  const values = [lemma];
   try {
     const result = await pool.query(query, values);
     res.status(200).json(result.rows);
