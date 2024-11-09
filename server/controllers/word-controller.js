@@ -18,16 +18,18 @@ async function getWords(req, res) {
 async function getWord(req, res) {
   const { id } = req.params;
   const query = `
-      SELECT * FROM words
-      WHERE id = $1;
-    `;
+        SELECT words.id, words.lemma, words.head, pos.name AS pos_name, words.def, words.img 
+        FROM words
+        INNER JOIN pos ON words.pos_id = pos.id
+        WHERE words.id = $1;
+      `;
   const values = [id];
   try {
     const result = await pool.query(query, values);
-    res.status(201).json(result.rows);
+    res.status(200).json(result.rows);
   } catch (error) {
     console.error(`Error connecting to PSQL pool: `, error);
-    res.status(500).json({ error: "Failed to update author data" });
+    res.status(500).json({ error: "Failed to fetch word data" });
   }
 }
 
