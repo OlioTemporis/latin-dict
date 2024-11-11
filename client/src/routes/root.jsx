@@ -13,7 +13,7 @@ export default function Root() {
           <section>
             <Searchbar />
           </section>
-          <section className="py-8 flex justify-center">
+          <section className="py-8">
             <Outlet />
           </section>
         </main>

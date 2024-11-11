@@ -36,12 +36,13 @@ async function getWord(req, res) {
 
 async function createWord(req, res) {
   const { lemma, head, pos_id, def, img } = req.body;
+  console.log("the request body :" + req.body);
   const query = `
       INSERT INTO words (lemma, head, pos_id, def, img)
       VALUES ($1, $2, $3, $4, $5);
     `;
-  const values = [lemma, head, pos_id, def, img];
-
+  const values = [lemma, head, parseInt(pos_id), def, img];
+  console.log(values);
   try {
     await pool.query(query, values);
     res.status(201).json({ message: "Successfully added word :" + values });
