@@ -4,8 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./index.css";
 import Root from "./routes/root";
-import Word from "./routes/word";
-import { loader as wordLoader } from "./routes/word";
+import Word, { loader as wordLoader } from "./routes/word";
 import ErrorPage from "./error-page";
 
 const router = createBrowserRouter([
@@ -15,7 +14,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/words/:lemma",
+        path: "words/:lemma",
         element: <Word />,
         loader: wordLoader,
       },
