@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import getWord from "../hooks/getWord";
+import Card from "../components/card";
 
 export async function loader({ params }) {
   const word = await getWord(params.lemma);
@@ -8,20 +9,17 @@ export async function loader({ params }) {
 
 export default function Word() {
   const { word } = useLoaderData();
+  console.log(word);
   return (
     <>
-      <h1>Word page</h1>
-
       {word.length ? (
-        <ul>
-          {word.map((w) => (
-            <li key={w.id}>
-              <p>{w.head}</p>
-              <p>{w.pos_name}</p>
-              <p>{w.def}</p>
-            </li>
-          ))}
-        </ul>
+        <Card
+          key={word[0].id}
+          head={word[0].head}
+          pos_name={word[0].pos_name}
+          def={word[0].def}
+          img={word[0].img}
+        />
       ) : (
         <p>word not found</p>
       )}

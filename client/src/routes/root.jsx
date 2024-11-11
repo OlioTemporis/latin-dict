@@ -13,10 +13,7 @@ export default function Root() {
           <section>
             <Searchbar />
           </section>
-          <section>
-            <h1 className="text-2xl dark:text-white">Flowbite React + Vite</h1>
-          </section>
-          <section>
+          <section className="py-8 flex justify-center">
             <Outlet />
           </section>
         </main>

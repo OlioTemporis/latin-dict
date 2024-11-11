@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { redirect, Form } from "react-router-dom";
+import { useState } from "react";
+import { Form } from "react-router-dom";
 
 export default function Searchbar() {
   const [lemma, setLemma] = useState("");
