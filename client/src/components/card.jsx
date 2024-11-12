@@ -1,4 +1,6 @@
-export default function Card({ id, head, pos_name, def, img }) {
+import { Link } from "react-router-dom";
+
+export default function Card({ id, lemma, head, pos_name, def, img }) {
   return (
     <div
       key={id}
@@ -12,27 +14,13 @@ export default function Card({ id, head, pos_name, def, img }) {
       </h6>
       <img className="mb-3 rounded-lg" src={img} alt="" />
       <p className="mb-3 font-normal text-gray-700 dark:text-gray-300">{def}</p>
-      <a
-        href="#"
-        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      <Link
+        to={`/edit/${lemma}`}
+        relative="path"
+        className="inline-flex items-center self-end px-3 py-2 text-sm font-medium text-center text-slate-900 bg-yellow-200 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-yellow-400 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800 dark:text-slate-700"
       >
-        Read more
-        <svg
-          className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 14 10"
-        >
-          <path
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M1 5h12m0 0L9 1m4 4L9 9"
-          />
-        </svg>
-      </a>
+        Polī
+      </Link>
     </div>
   );
 }

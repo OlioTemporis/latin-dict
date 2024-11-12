@@ -7,6 +7,11 @@ import Root from "./routes/root";
 import Word, { loader as wordLoader } from "./routes/word";
 import New from "./routes/new";
 import { action as wordAction } from "./components/new-word";
+import Edit from "./routes/edit";
+import {
+  loader as editLoader,
+  action as editAction,
+} from "./components/edit-word";
 import ErrorPage from "./error-page";
 
 const router = createBrowserRouter([
@@ -21,7 +26,13 @@ const router = createBrowserRouter([
         loader: wordLoader,
       },
       {
-        path: "/new",
+        path: "edit/:lemma",
+        element: <Edit />,
+        loader: editLoader,
+        action: editAction,
+      },
+      {
+        path: "new",
         element: <New />,
         action: wordAction,
       },

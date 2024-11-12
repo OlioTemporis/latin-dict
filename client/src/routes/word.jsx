@@ -15,6 +15,7 @@ export default function Word() {
       {word.length ? (
         <Card
           key={word[0].id}
+          lemma={word[0].lemma}
           head={word[0].head}
           pos_name={word[0].pos_name}
           def={word[0].def}

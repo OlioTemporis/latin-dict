@@ -75,14 +75,14 @@ async function deleteWord(req, res) {
 }
 
 async function updateWord(req, res) {
-  const { id } = req.params;
+  const { lemma } = req.params;
   const { def } = req.body;
   const query = `
       UPDATE words
       SET def = $1
-      WHERE id = $2;
+      WHERE lemma = $2;
     `;
-  const values = [def, id];
+  const values = [def, lemma];
   console.log(values);
   try {
     await pool.query(query, values);
