@@ -53,12 +53,12 @@ async function createWord(req, res) {
 }
 
 async function deleteWord(req, res) {
-  const { id } = req.params;
+  const { lemma } = req.params;
   const query = `
       DELETE FROM words
-      WHERE id = $1;
+      WHERE lemma = $1;
     `;
-  const values = [id];
+  const values = [lemma];
 
   try {
     const result = await pool.query(query, values);

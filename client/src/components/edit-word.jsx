@@ -11,7 +11,7 @@ export async function action({ request }) {
   const formData = await request.formData();
   const postData = Object.fromEntries(formData);
   await updateWord(postData);
-  return redirect(`/`);
+  return redirect(`/words/${postData.lemma}`);
 }
 
 export default function EditWord() {
@@ -56,7 +56,7 @@ export default function EditWord() {
         <div className="mb-5">
           <button
             type="submit"
-            className="focus:outline-none text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-700"
+            className="focus:outline-none text-white bg-red-600 hover:bg-green-700 focus:ring-4 focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-700"
           >
             Adde
           </button>

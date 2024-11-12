@@ -22,7 +22,7 @@ export default function Word() {
           img={word[0].img}
         />
       ) : (
-        <p>word not found</p>
+        <p className="text-center">word not found</p>
       )}
     </>
   );

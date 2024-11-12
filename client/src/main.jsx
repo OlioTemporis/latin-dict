@@ -12,6 +12,7 @@ import {
   loader as editLoader,
   action as editAction,
 } from "./components/edit-word";
+import { action as wordDeleteAction } from "./components/card";
 import ErrorPage from "./error-page";
 
 const router = createBrowserRouter([
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
         path: "words/:lemma",
         element: <Word />,
         loader: wordLoader,
+        action: wordDeleteAction,
       },
       {
         path: "edit/:lemma",
